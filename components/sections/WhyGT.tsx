@@ -1,5 +1,4 @@
 import { Search, Network, Zap, Globe2 } from "lucide-react";
-import SectionHeading from "@/components/ui/SectionHeading";
 
 const items = [
   {
@@ -26,36 +25,59 @@ const items = [
 
 export default function WhyGT() {
   return (
-    <section className="section-py bg-brand-offwhite">
+    <section className="section-py bg-surface-bg">
       <div className="container-xl">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <SectionHeading
-            eyebrow="Why GT"
-            title="Why Businesses Choose GT"
-            centered
-          />
+          <span className="section-label">Why GT</span>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-text-primary mt-3 leading-tight">
+            Why Businesses{" "}
+            <span className="gradient-text">Choose Us</span>
+          </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {items.map(({ Icon, title, body }, i) => (
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
+          {/* Cards — 2-col within first 2 cols */}
+          <div className="lg:col-span-2 grid md:grid-cols-2 gap-5">
+            {items.map(({ Icon, title, body }, i) => (
+              <div
+                key={title}
+                className="bg-surface-card border border-surface-border rounded-2xl p-7 flex gap-5
+                           hover:border-surface-border-glow transition-all duration-300
+                           animate-on-scroll group"
+                style={{ transitionDelay: `${i * 80}ms` }}
+              >
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-brand-primary/10
+                                flex items-center justify-center text-brand-primary
+                                group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
+                  <Icon size={20} strokeWidth={1.75} />
+                </div>
+                <div>
+                  <h3 className="font-display text-base font-semibold text-text-primary mb-2">
+                    {title}
+                  </h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">{body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Decorative right column */}
+          <div className="hidden lg:flex items-center justify-center relative h-full min-h-[320px]">
+            {/* Glowing orb */}
             <div
-              key={title}
-              className="bg-white rounded-xl p-8 border border-gray-100 flex gap-6
-                         hover:border-brand-primary/30 hover:shadow-sm transition-all duration-300
-                         animate-on-scroll group"
-              style={{ transitionDelay: `${i * 80}ms` }}
+              className="absolute w-64 h-64 rounded-full pointer-events-none"
+              style={{
+                background: "radial-gradient(circle, rgba(108,60,255,0.15) 0%, transparent 70%)",
+              }}
+            />
+            {/* Large GT text */}
+            <span
+              className="font-display font-black text-text-primary select-none relative z-10"
+              style={{ fontSize: "10rem", opacity: 0.03, lineHeight: 1 }}
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-primary/8
-                              flex items-center justify-center text-brand-primary
-                              group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
-                <Icon size={22} strokeWidth={1.75} />
-              </div>
-              <div>
-                <h3 className="text-base font-semibold text-brand-dark mb-2">{title}</h3>
-                <p className="text-sm text-brand-gray leading-relaxed">{body}</p>
-              </div>
-            </div>
-          ))}
+              GT
+            </span>
+          </div>
         </div>
       </div>
     </section>

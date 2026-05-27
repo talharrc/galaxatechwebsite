@@ -26,16 +26,14 @@ export default function ServicesPage() {
       <Navbar />
       <main>
         {/* Page hero */}
-        <section className="bg-brand-offwhite pt-32 pb-16">
+        <section className="bg-surface-bg pt-32 pb-16 grid-bg">
           <div className="container-xl">
             <div className="max-w-3xl">
-              <span className="text-xs font-semibold tracking-widest uppercase text-brand-primary">
-                What We Do
-              </span>
-              <h1 className="mt-3 text-5xl lg:text-6xl font-bold text-brand-dark leading-tight tracking-tight">
+              <span className="section-label">What We Do</span>
+              <h1 className="font-display mt-3 text-5xl lg:text-6xl font-bold text-text-primary leading-tight tracking-tight">
                 What We Do —<br />And How We Do It
               </h1>
-              <p className="mt-5 text-lg text-brand-gray leading-relaxed max-w-xl">
+              <p className="mt-5 text-lg text-text-secondary leading-relaxed max-w-xl">
                 Every service at Galaxa Tech is designed around one principle: your business needs
                 systems, not just deliverables.
               </p>
@@ -44,7 +42,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Services list */}
-        <section className="section-py bg-white">
+        <section className="section-py bg-surface-bg">
           <div className="container-xl flex flex-col gap-24">
             {SERVICES.map((service, i) => {
               const Icon = iconMap[service.icon] ?? Globe;
@@ -61,13 +59,12 @@ export default function ServicesPage() {
                   <div className="relative">
                     <div
                       className="aspect-[4/3] rounded-2xl flex items-center justify-center
-                                  bg-gradient-to-br from-brand-primary/8 via-brand-lavender/10 to-brand-offwhite
-                                  border border-brand-primary/10"
+                                  bg-surface-card border border-surface-border"
                     >
-                      <Icon size={80} className="text-brand-primary/30" strokeWidth={1} />
+                      <Icon size={80} className="text-brand-primary/20" strokeWidth={1} />
                       <div className="absolute inset-6 flex items-center justify-center">
                         <div className="w-24 h-24 rounded-3xl bg-brand-primary/10 flex items-center
-                                        justify-center shadow-glow">
+                                        justify-center shadow-glow-sm">
                           <Icon size={40} className="text-brand-primary" strokeWidth={1.5} />
                         </div>
                       </div>
@@ -78,34 +75,34 @@ export default function ServicesPage() {
                   <div className="flex flex-col gap-6">
                     <div>
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs
-                                       font-semibold bg-brand-primary/10 text-brand-primary mb-3">
+                                       font-semibold bg-brand-primary/10 text-text-accent mb-3">
                         Service {String(i + 1).padStart(2, "0")}
                       </span>
-                      <h2 className="text-3xl font-bold text-brand-dark">{service.title}</h2>
+                      <h2 className="font-display text-3xl font-bold text-text-primary">{service.title}</h2>
                     </div>
 
                     <div className="flex flex-col gap-4">
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-widest text-brand-gray mb-2">
+                        <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-2">
                           The Problem
                         </p>
-                        <p className="text-brand-gray leading-relaxed text-sm">{service.problem}</p>
+                        <p className="text-text-secondary leading-relaxed text-sm">{service.problem}</p>
                       </div>
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-widest text-brand-gray mb-2">
+                        <p className="text-xs font-semibold uppercase tracking-widest text-text-muted mb-2">
                           What GT Does
                         </p>
-                        <p className="text-brand-gray leading-relaxed text-sm">{service.solution}</p>
+                        <p className="text-text-secondary leading-relaxed text-sm">{service.solution}</p>
                       </div>
                     </div>
 
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-brand-dark mb-3">
+                      <p className="text-xs font-semibold uppercase tracking-widest text-text-primary mb-3">
                         What You Get
                       </p>
                       <ul className="flex flex-col gap-2">
                         {service.deliverables.map((d) => (
-                          <li key={d} className="flex items-start gap-2.5 text-sm text-brand-gray">
+                          <li key={d} className="flex items-start gap-2.5 text-sm text-text-secondary">
                             <CheckCircle2 size={16} className="text-brand-primary flex-shrink-0 mt-0.5" />
                             {d}
                           </li>
@@ -125,13 +122,13 @@ export default function ServicesPage() {
         </section>
 
         {/* Not sure CTA */}
-        <section className="section-py bg-brand-offwhite">
+        <section className="section-py bg-surface-card border-y border-surface-border">
           <div className="container-xl text-center flex flex-col items-center gap-6">
             <div className="max-w-xl">
-              <h2 className="text-3xl font-bold text-brand-dark mb-3">
+              <h2 className="font-display text-3xl font-bold text-text-primary mb-3">
                 Not sure which service you need?
               </h2>
-              <p className="text-brand-gray leading-relaxed">
+              <p className="text-text-secondary leading-relaxed">
                 Start with a free audit and we&apos;ll map it out for you.
               </p>
             </div>

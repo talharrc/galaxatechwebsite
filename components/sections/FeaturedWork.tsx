@@ -1,23 +1,28 @@
-import SectionHeading from "@/components/ui/SectionHeading";
+import Link from "next/link";
 import ProjectCard from "@/components/ui/ProjectCard";
-import Button from "@/components/ui/Button";
 import { PROJECTS } from "@/lib/constants";
+import { ArrowRight } from "lucide-react";
 
 export default function FeaturedWork() {
   return (
-    <section className="section-py bg-brand-dark">
+    <section className="section-py bg-surface-card border-y border-surface-border">
       <div className="container-xl">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
-          <SectionHeading
-            eyebrow="Selected Work"
-            title="Real Projects. Real Execution."
-            subtitle="Real outcomes."
-            light
-          />
-          <Button href="/work" variant="ghost-white" className="flex-shrink-0 self-start lg:self-auto">
-            View All Work
-          </Button>
+          <div>
+            <span className="section-label">Selected Work</span>
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-text-primary mt-3 leading-tight">
+              Real Projects.{" "}
+              <span className="gradient-text">Real Execution.</span>
+            </h2>
+          </div>
+          <Link
+            href="/work"
+            className="flex-shrink-0 self-start lg:self-auto flex items-center gap-2
+                       text-sm font-medium text-text-accent hover:text-text-primary transition-colors"
+          >
+            View All Work <ArrowRight size={14} />
+          </Link>
         </div>
 
         {/* Project cards */}

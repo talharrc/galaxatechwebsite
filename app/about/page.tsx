@@ -26,19 +26,17 @@ export default function AboutPage() {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-16 bg-white">
+        <section className="pt-32 pb-16 bg-surface-bg grid-bg">
           <div className="container-xl">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <span className="text-xs font-semibold tracking-widest uppercase text-brand-primary">
-                  About Us
-                </span>
-                <h1 className="mt-3 text-5xl lg:text-6xl font-bold text-brand-dark leading-tight tracking-tight">
+                <span className="section-label">About Us</span>
+                <h1 className="font-display mt-3 text-5xl lg:text-6xl font-bold text-text-primary leading-tight tracking-tight">
                   We Are Galaxa Tech
                 </h1>
               </div>
               <div>
-                <p className="text-lg text-brand-gray leading-relaxed">
+                <p className="text-lg text-text-secondary leading-relaxed">
                   A systems-driven creative tech agency built to help modern businesses audit,
                   optimize, and scale their digital ecosystems.
                 </p>
@@ -48,20 +46,18 @@ export default function AboutPage() {
         </section>
 
         {/* Mission */}
-        <section className="section-py bg-brand-offwhite">
+        <section className="section-py bg-surface-card border-y border-surface-border">
           <div className="container-xl">
             <div className="grid lg:grid-cols-2 gap-12 items-center animate-on-scroll">
               <div>
-                <span className="text-xs font-semibold tracking-widest uppercase text-brand-primary">
-                  Mission
-                </span>
-                <h2 className="mt-3 text-4xl font-bold text-brand-dark leading-tight">
+                <span className="section-label">Mission</span>
+                <h2 className="font-display mt-3 text-4xl font-bold text-text-primary leading-tight">
                   Why GT Exists
                 </h2>
               </div>
               <div className="relative">
                 <div className="absolute -left-4 top-0 bottom-0 w-1 bg-brand-primary rounded-full" />
-                <p className="pl-6 text-lg text-brand-gray leading-relaxed">
+                <p className="pl-6 text-lg text-text-secondary leading-relaxed">
                   &ldquo;Our mission is to close the gap between where businesses are digitally
                   and where they need to be — through structured audits, strategic execution,
                   and scalable systems.&rdquo;
@@ -72,34 +68,34 @@ export default function AboutPage() {
         </section>
 
         {/* Team */}
-        <section className="section-py bg-white">
+        <section className="section-py bg-surface-bg">
           <div className="container-xl">
             <div className="mb-12">
-              <span className="text-xs font-semibold tracking-widest uppercase text-brand-primary">
-                The Team
-              </span>
-              <h2 className="mt-3 text-4xl font-bold text-brand-dark">The Team</h2>
+              <span className="section-label">The Team</span>
+              <h2 className="font-display mt-3 text-4xl font-bold text-text-primary">The Team</h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
               {TEAM.map((member, i) => (
                 <div
                   key={member.name}
-                  className="bg-white border border-gray-100 rounded-2xl p-8 flex flex-col gap-5
-                             hover:border-brand-primary/30 hover:shadow-md transition-all duration-300
+                  className="bg-surface-card border border-surface-border rounded-2xl p-8 flex flex-col gap-5
+                             hover:border-surface-border-glow hover:shadow-glow-sm transition-all duration-300
                              animate-on-scroll"
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
                   {/* Avatar */}
                   <div className="w-16 h-16 rounded-2xl bg-brand-primary flex items-center
-                                  justify-center text-white text-2xl font-bold">
+                                  justify-center text-white text-2xl font-bold font-display">
                     {member.initial}
                   </div>
                   <div>
-                    <h3 className="font-bold text-brand-dark text-lg leading-tight">{member.name}</h3>
+                    <h3 className="font-display font-bold text-text-primary text-lg leading-tight">
+                      {member.name}
+                    </h3>
                     <p className="text-brand-primary text-sm font-semibold mt-1">{member.role}</p>
                   </div>
-                  <p className="text-sm text-brand-gray leading-relaxed">{member.bio}</p>
+                  <p className="text-sm text-text-secondary leading-relaxed">{member.bio}</p>
                 </div>
               ))}
             </div>
@@ -107,30 +103,28 @@ export default function AboutPage() {
         </section>
 
         {/* Values */}
-        <section className="section-py bg-brand-offwhite">
+        <section className="section-py bg-surface-card border-y border-surface-border">
           <div className="container-xl">
             <div className="mb-12 text-center">
-              <span className="text-xs font-semibold tracking-widest uppercase text-brand-primary">
-                What We Stand For
-              </span>
-              <h2 className="mt-3 text-4xl font-bold text-brand-dark">Our Values</h2>
+              <span className="section-label">What We Stand For</span>
+              <h2 className="font-display mt-3 text-4xl font-bold text-text-primary">Our Values</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-5">
               {values.map((v, i) => (
                 <div
                   key={v.title}
-                  className="bg-white rounded-xl p-8 border border-gray-100 flex gap-5
-                             hover:border-brand-primary/20 transition-all duration-300 animate-on-scroll"
+                  className="bg-surface-elevated rounded-xl p-8 border border-surface-border flex gap-5
+                             hover:border-surface-border-glow transition-all duration-300 animate-on-scroll"
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
                   <div className="w-10 h-10 rounded-xl bg-brand-primary/10 flex items-center
-                                  justify-center text-brand-primary font-bold text-sm flex-shrink-0">
+                                  justify-center text-text-accent font-bold text-sm flex-shrink-0 font-display">
                     {String(i + 1).padStart(2, "0")}
                   </div>
                   <div>
-                    <h3 className="font-bold text-brand-dark mb-2">{v.title}</h3>
-                    <p className="text-sm text-brand-gray leading-relaxed">{v.description}</p>
+                    <h3 className="font-display font-bold text-text-primary mb-2">{v.title}</h3>
+                    <p className="text-sm text-text-secondary leading-relaxed">{v.description}</p>
                   </div>
                 </div>
               ))}
@@ -139,9 +133,11 @@ export default function AboutPage() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="section-py bg-white text-center">
+        <section className="section-py bg-surface-bg text-center">
           <div className="container-xl flex flex-col items-center gap-5">
-            <h2 className="text-3xl font-bold text-brand-dark">Want to work with us?</h2>
+            <h2 className="font-display text-3xl font-bold text-text-primary">
+              Want to work with us?
+            </h2>
             <Button href="/contact" size="lg">
               Get a Free Audit <ArrowRight size={18} />
             </Button>

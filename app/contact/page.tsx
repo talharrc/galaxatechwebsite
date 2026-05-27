@@ -55,20 +55,22 @@ export default function ContactPage() {
     },
   ];
 
+  const inputBase = "w-full px-4 py-3 rounded-xl border text-sm outline-none transition-colors bg-surface-elevated text-text-primary placeholder:text-text-muted focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/10";
+  const inputError = "border-red-500/60 bg-red-500/5";
+  const inputNormal = "border-surface-border";
+
   return (
     <>
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-12 bg-brand-offwhite border-b border-gray-100">
+        <section className="pt-32 pb-12 bg-surface-bg grid-bg border-b border-surface-border">
           <div className="container-xl">
-            <span className="text-xs font-semibold tracking-widest uppercase text-brand-primary">
-              Get in Touch
-            </span>
-            <h1 className="mt-3 text-5xl lg:text-6xl font-bold text-brand-dark leading-tight tracking-tight">
+            <span className="section-label">Get in Touch</span>
+            <h1 className="font-display mt-3 text-5xl lg:text-6xl font-bold text-text-primary leading-tight tracking-tight">
               Let&apos;s Talk
             </h1>
-            <p className="mt-4 text-lg text-brand-gray max-w-xl leading-relaxed">
+            <p className="mt-4 text-lg text-text-secondary max-w-xl leading-relaxed">
               Whether you need an audit, a project, or just clarity — reach out. We respond within
               24 hours.
             </p>
@@ -76,21 +78,21 @@ export default function ContactPage() {
         </section>
 
         {/* Form + Info */}
-        <section className="section-py bg-white">
+        <section className="section-py bg-surface-bg">
           <div className="container-xl grid lg:grid-cols-[60%_40%] gap-12 lg:gap-16">
             {/* Form */}
             <div>
               {submitted ? (
                 <div className="flex flex-col items-center justify-center h-full gap-6 py-20 text-center">
-                  <div className="w-16 h-16 rounded-full bg-brand-primary/10 flex items-center
+                  <div className="w-16 h-16 rounded-full bg-brand-primary/10 border border-brand-primary/30 flex items-center
                                   justify-center text-brand-primary text-3xl">
                     ✓
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-brand-dark mb-2">
+                    <h2 className="font-display text-2xl font-bold text-text-primary mb-2">
                       Request Received
                     </h2>
-                    <p className="text-brand-gray leading-relaxed">
+                    <p className="text-text-secondary leading-relaxed">
                       Thanks for reaching out. We&apos;ll review your message and get back to you
                       within 24 business hours.
                     </p>
@@ -101,7 +103,7 @@ export default function ContactPage() {
                   {/* Name + Email */}
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-brand-dark mb-1.5">
+                      <label className="block text-sm font-semibold text-text-primary mb-1.5">
                         Your Name <span className="text-brand-primary">*</span>
                       </label>
                       <input
@@ -109,14 +111,12 @@ export default function ContactPage() {
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         placeholder="Ahmed Raza"
-                        className={`w-full px-4 py-3 rounded-lg border text-sm outline-none transition-colors
-                          focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/10
-                          ${errors.name ? "border-red-400 bg-red-50" : "border-gray-200 bg-white"}`}
+                        className={`${inputBase} ${errors.name ? inputError : inputNormal}`}
                       />
-                      {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
+                      {errors.name && <p className="text-xs text-red-400 mt-1">{errors.name}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-brand-dark mb-1.5">
+                      <label className="block text-sm font-semibold text-text-primary mb-1.5">
                         Your Email <span className="text-brand-primary">*</span>
                       </label>
                       <input
@@ -124,44 +124,40 @@ export default function ContactPage() {
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                         placeholder="you@company.com"
-                        className={`w-full px-4 py-3 rounded-lg border text-sm outline-none transition-colors
-                          focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/10
-                          ${errors.email ? "border-red-400 bg-red-50" : "border-gray-200 bg-white"}`}
+                        className={`${inputBase} ${errors.email ? inputError : inputNormal}`}
                       />
-                      {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
+                      {errors.email && <p className="text-xs text-red-400 mt-1">{errors.email}</p>}
                     </div>
                   </div>
 
                   {/* Company */}
                   <div>
-                    <label className="block text-sm font-semibold text-brand-dark mb-1.5">
+                    <label className="block text-sm font-semibold text-text-primary mb-1.5">
                       Company / Business Name{" "}
-                      <span className="text-brand-gray font-normal">(optional)</span>
+                      <span className="text-text-muted font-normal">(optional)</span>
                     </label>
                     <input
                       type="text"
                       value={form.company}
                       onChange={(e) => setForm({ ...form, company: e.target.value })}
                       placeholder="Your Company"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm outline-none
-                                 focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/10 transition-colors"
+                      className={`${inputBase} ${inputNormal}`}
                     />
                   </div>
 
                   {/* Service + Budget */}
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-brand-dark mb-1.5">
+                      <label className="block text-sm font-semibold text-text-primary mb-1.5">
                         What do you need help with? <span className="text-brand-primary">*</span>
                       </label>
                       <div className="relative">
                         <select
                           value={form.service}
                           onChange={(e) => setForm({ ...form, service: e.target.value })}
-                          className={`w-full px-4 py-3 rounded-lg border text-sm outline-none appearance-none
-                            focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/10 transition-colors
-                            ${errors.service ? "border-red-400 bg-red-50" : "border-gray-200 bg-white"}
-                            ${!form.service ? "text-gray-400" : "text-brand-dark"}`}
+                          className={`${inputBase} appearance-none cursor-pointer
+                            ${errors.service ? inputError : inputNormal}
+                            ${!form.service ? "text-text-muted" : "text-text-primary"}`}
                         >
                           <option value="">Select a service</option>
                           <option>Free Digital Audit</option>
@@ -174,21 +170,19 @@ export default function ContactPage() {
                           <option>Builders Program</option>
                           <option>Other</option>
                         </select>
-                        <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                        <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none" />
                       </div>
-                      {errors.service && <p className="text-xs text-red-500 mt-1">{errors.service}</p>}
+                      {errors.service && <p className="text-xs text-red-400 mt-1">{errors.service}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-brand-dark mb-1.5">
+                      <label className="block text-sm font-semibold text-text-primary mb-1.5">
                         Approximate Budget
                       </label>
                       <div className="relative">
                         <select
                           value={form.budget}
                           onChange={(e) => setForm({ ...form, budget: e.target.value })}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm outline-none
-                                     appearance-none focus:border-brand-primary focus:ring-2
-                                     focus:ring-brand-primary/10 transition-colors"
+                          className={`${inputBase} ${inputNormal} appearance-none cursor-pointer`}
                         >
                           <option value="">Select budget range</option>
                           <option>Under $500</option>
@@ -197,14 +191,14 @@ export default function ContactPage() {
                           <option>$5,000+</option>
                           <option>Not sure yet</option>
                         </select>
-                        <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                        <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none" />
                       </div>
                     </div>
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label className="block text-sm font-semibold text-brand-dark mb-1.5">
+                    <label className="block text-sm font-semibold text-text-primary mb-1.5">
                       Tell us about your project or challenge{" "}
                       <span className="text-brand-primary">*</span>
                     </label>
@@ -213,19 +207,18 @@ export default function ContactPage() {
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
                       placeholder="Describe what you're working on, what's not working, or what you're trying to achieve..."
-                      className={`w-full px-4 py-3 rounded-lg border text-sm outline-none resize-none transition-colors
-                        focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/10
-                        ${errors.message ? "border-red-400 bg-red-50" : "border-gray-200 bg-white"}`}
+                      className={`${inputBase} resize-none ${errors.message ? inputError : inputNormal}`}
                     />
                     {errors.message && (
-                      <p className="text-xs text-red-500 mt-1">{errors.message}</p>
+                      <p className="text-xs text-red-400 mt-1">{errors.message}</p>
                     )}
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-brand-primary text-white font-semibold py-4 rounded-lg
-                               hover:bg-brand-mid transition-colors duration-200 text-sm"
+                    className="w-full bg-brand-primary text-white font-semibold py-4 rounded-full
+                               hover:bg-brand-mid transition-all duration-200 text-sm
+                               hover:shadow-glow-btn"
                   >
                     Send My Request
                   </button>
@@ -244,21 +237,21 @@ export default function ContactPage() {
                   { Icon: MapPin, label: "Based In", value: "Dhaka, Bangladesh. Working globally." },
                 ].map(({ Icon, label, value, href }) => (
                   <div key={label} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-brand-primary/8 flex items-center
+                    <div className="w-10 h-10 rounded-xl bg-brand-primary/10 border border-brand-primary/20 flex items-center
                                     justify-center text-brand-primary flex-shrink-0">
                       <Icon size={18} />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-brand-gray uppercase tracking-wide mb-0.5">
+                      <p className="text-xs font-semibold text-text-muted uppercase tracking-wide mb-0.5">
                         {label}
                       </p>
                       {href ? (
-                        <a href={href} className="text-sm text-brand-dark hover:text-brand-primary
+                        <a href={href} className="text-sm text-text-primary hover:text-text-accent
                                                    transition-colors break-all">
                           {value}
                         </a>
                       ) : (
-                        <p className="text-sm text-brand-dark">{value}</p>
+                        <p className="text-sm text-text-primary">{value}</p>
                       )}
                     </div>
                   </div>
@@ -266,24 +259,26 @@ export default function ContactPage() {
               </div>
 
               {/* FAQs */}
-              <div className="flex flex-col gap-0 border-t pt-8">
-                <h3 className="text-base font-bold text-brand-dark mb-4">Common Questions</h3>
+              <div className="flex flex-col gap-0 border-t border-surface-border pt-8">
+                <h3 className="font-display text-base font-bold text-text-primary mb-4">
+                  Common Questions
+                </h3>
                 {faqs.map((faq, i) => (
-                  <div key={i} className="border-b border-gray-100 last:border-0">
+                  <div key={i} className="border-b border-surface-border last:border-0">
                     <button
                       onClick={() => setOpenFaq(openFaq === i ? null : i)}
                       className="w-full flex items-center justify-between py-4 text-left gap-3"
                     >
-                      <span className="text-sm font-semibold text-brand-dark">{faq.q}</span>
+                      <span className="text-sm font-semibold text-text-primary">{faq.q}</span>
                       <ChevronDown
                         size={16}
-                        className={`text-brand-gray flex-shrink-0 transition-transform duration-200 ${
+                        className={`text-text-muted flex-shrink-0 transition-transform duration-200 ${
                           openFaq === i ? "rotate-180" : ""
                         }`}
                       />
                     </button>
                     {openFaq === i && (
-                      <p className="pb-4 text-sm text-brand-gray leading-relaxed">{faq.a}</p>
+                      <p className="pb-4 text-sm text-text-secondary leading-relaxed">{faq.a}</p>
                     )}
                   </div>
                 ))}

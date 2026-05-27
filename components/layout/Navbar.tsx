@@ -13,7 +13,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -24,15 +24,20 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white shadow-sm border-b border-gray-100"
-          : "bg-white/95 backdrop-blur-sm"
+          ? "border-b border-surface-border"
+          : ""
       }`}
+      style={{
+        backgroundColor: scrolled ? "rgba(8,7,15,0.92)" : "transparent",
+        backdropFilter: scrolled ? "blur(20px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
+      }}
     >
       <div className="container-xl">
-        <nav className="flex items-center justify-between h-16 lg:h-18">
+        <nav className="flex items-center justify-between h-[72px]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-            <div className="relative w-8 h-8">
+            <div className="relative w-9 h-9">
               <Image
                 src="/images/logo-purple.png"
                 alt="Galaxa Tech"
@@ -41,11 +46,9 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-bold text-lg text-brand-dark tracking-tight">
-                Galaxa Tech
-              </span>
-            </div>
+            <span className="font-display font-bold text-lg text-text-primary tracking-tight">
+              Galaxa Tech
+            </span>
           </Link>
 
           {/* Desktop nav */}
@@ -56,16 +59,13 @@ export default function Navbar() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 relative ${
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                       active
-                        ? "text-brand-primary"
-                        : "text-brand-gray hover:text-brand-dark"
+                        ? "text-text-accent"
+                        : "text-text-secondary hover:text-text-primary"
                     }`}
                   >
                     {link.label}
-                    {active && (
-                      <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-brand-primary rounded-full" />
-                    )}
                   </Link>
                 </li>
               );
@@ -77,7 +77,8 @@ export default function Navbar() {
             <Link
               href="/contact"
               className="bg-brand-primary text-white text-sm font-semibold px-5 py-2.5
-                         rounded-lg hover:bg-brand-mid transition-colors duration-200"
+                         rounded-full hover:bg-brand-mid transition-all duration-200
+                         hover:shadow-glow-sm"
             >
               Get a Free Audit
             </Link>
@@ -85,7 +86,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden p-2 rounded-lg text-brand-dark hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg text-text-secondary hover:text-text-primary transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle navigation"
           >
@@ -96,7 +97,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 bg-white border-t border-gray-100 ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 bg-surface-bg border-b border-surface-border ${
           mobileOpen ? "max-h-96" : "max-h-0"
         }`}
       >
@@ -109,8 +110,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                   active
-                    ? "bg-brand-primary/8 text-brand-primary"
-                    : "text-brand-gray hover:text-brand-dark hover:bg-gray-50"
+                    ? "bg-brand-primary/10 text-text-accent"
+                    : "text-text-secondary hover:text-text-primary hover:bg-surface-elevated"
                 }`}
               >
                 {link.label}
@@ -120,7 +121,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             className="mt-3 bg-brand-primary text-white text-sm font-semibold px-5 py-3
-                       rounded-lg text-center hover:bg-brand-mid transition-colors"
+                       rounded-full text-center hover:bg-brand-mid transition-colors"
           >
             Get a Free Audit
           </Link>

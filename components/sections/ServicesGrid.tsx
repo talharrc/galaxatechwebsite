@@ -4,13 +4,14 @@ import { SERVICES } from "@/lib/constants";
 
 export default function ServicesGrid() {
   return (
-    <section className="section-py bg-white">
+    <section className="section-py bg-surface-bg grid-bg">
       <div className="container-xl">
-        <div className="mb-14">
+        <div className="mb-14 text-center max-w-2xl mx-auto">
           <SectionHeading
             eyebrow="What We Do"
-            title="What We Build &amp; Optimize"
+            title="What We Build &amp; <span class='gradient-text'>Optimize</span>"
             subtitle="Every service is designed around one principle — your business needs systems, not just deliverables."
+            centered
           />
         </div>
 

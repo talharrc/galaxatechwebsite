@@ -1,5 +1,4 @@
 import { Search, Compass, Map, Code2, TrendingUp } from "lucide-react";
-import SectionHeading from "@/components/ui/SectionHeading";
 
 const steps = [
   {
@@ -36,22 +35,25 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section className="section-py bg-white">
+    <section className="section-py bg-surface-card border-y border-surface-border">
       <div className="container-xl">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <SectionHeading
-            eyebrow="Our Methodology"
-            title="How We Work"
-            subtitle="A structured process built for clarity, speed, and results."
-            centered
-          />
+          <span className="section-label">Our Methodology</span>
+          <h2 className="font-display text-4xl lg:text-5xl font-bold text-text-primary mt-3 leading-tight">
+            How We Work
+          </h2>
+          <p className="text-base lg:text-lg text-text-secondary leading-relaxed mt-4">
+            A structured process built for clarity, speed, and results.
+          </p>
         </div>
 
         {/* Steps */}
         <div className="relative">
           {/* Connector line (desktop) */}
-          <div className="absolute top-10 left-[calc(10%+40px)] right-[calc(10%+40px)] h-px
-                          border-t-2 border-dashed border-brand-lavender hidden lg:block" />
+          <div className="absolute top-10 left-[calc(10%+40px)] right-[calc(10%+40px)] h-px hidden lg:block"
+               style={{
+                 background: "linear-gradient(to right, #3D2D8A, rgba(61,45,138,0.3), #3D2D8A)"
+               }} />
 
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-8">
             {steps.map((step, i) => (
@@ -62,22 +64,23 @@ export default function ProcessSection() {
               >
                 {/* Circle */}
                 <div
-                  className={`relative z-10 w-20 h-20 rounded-full flex items-center justify-center border-2 transition-colors ${
+                  className={`relative z-10 w-20 h-20 rounded-full flex items-center justify-center
+                              border-2 transition-colors ${
                     i === 0 || i === steps.length - 1
                       ? "border-brand-primary bg-brand-primary text-white shadow-glow-sm"
-                      : "border-brand-primary/30 bg-white text-brand-primary"
+                      : "border-surface-border-glow bg-surface-elevated text-brand-primary"
                   }`}
                 >
                   <step.Icon size={24} strokeWidth={1.75} />
                 </div>
                 {/* Number badge */}
                 <div className="absolute top-0 right-1/2 translate-x-[calc(50%+24px)] -translate-y-1
-                                w-5 h-5 rounded-full bg-brand-dark text-white text-[10px] font-bold
+                                w-5 h-5 rounded-full bg-surface-border-glow text-text-accent text-[10px] font-bold
                                 flex items-center justify-center">
                   {i + 1}
                 </div>
-                <h3 className="font-semibold text-brand-dark text-sm">{step.label}</h3>
-                <p className="text-xs text-brand-gray leading-relaxed">{step.description}</p>
+                <h3 className="font-display font-semibold text-text-primary text-sm">{step.label}</h3>
+                <p className="text-xs text-text-secondary leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>

@@ -58,25 +58,15 @@ export default function BuildersPage() {
       <Navbar />
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden bg-brand-dark pt-32 pb-20">
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-transparent to-transparent" />
-          <div
-            className="absolute inset-0 opacity-[0.04]"
-            style={{
-              backgroundImage:
-                "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
-              backgroundSize: "40px 40px",
-            }}
-          />
+        <section className="relative overflow-hidden bg-surface-bg pt-32 pb-20 grid-bg">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 via-transparent to-transparent" />
           <div className="container-xl relative z-10">
             <div className="max-w-2xl">
-              <span className="text-xs font-semibold tracking-widest uppercase text-brand-lavender">
-                For Aspiring Digital Professionals
-              </span>
-              <h1 className="mt-3 text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+              <span className="section-label">For Aspiring Digital Professionals</span>
+              <h1 className="font-display mt-3 text-5xl lg:text-6xl font-bold text-text-primary leading-tight tracking-tight">
                 The Galaxa Builders Program
               </h1>
-              <p className="mt-5 text-xl text-white/65 leading-relaxed">
+              <p className="mt-5 text-xl text-text-secondary leading-relaxed">
                 A project-based digital apprenticeship. Learn through execution. Build real
                 systems. Grow with discipline.
               </p>
@@ -90,19 +80,17 @@ export default function BuildersPage() {
         </section>
 
         {/* What it is */}
-        <section className="section-py bg-white">
+        <section className="section-py bg-surface-card border-y border-surface-border">
           <div className="container-xl">
             <div className="grid lg:grid-cols-2 gap-12 items-center animate-on-scroll">
               <div>
-                <span className="text-xs font-semibold tracking-widest uppercase text-brand-primary">
-                  What It Is
-                </span>
-                <h2 className="mt-3 text-4xl font-bold text-brand-dark leading-tight">
+                <span className="section-label">What It Is</span>
+                <h2 className="font-display mt-3 text-4xl font-bold text-text-primary leading-tight">
                   Not a Course. Not a Community.
                 </h2>
               </div>
               <div>
-                <p className="text-lg text-brand-gray leading-relaxed">
+                <p className="text-lg text-text-secondary leading-relaxed">
                   The Builders Program is a structured apprenticeship where selected individuals
                   work on real GT projects, learn operational workflows, and develop into
                   execution-ready digital professionals.
@@ -113,24 +101,24 @@ export default function BuildersPage() {
         </section>
 
         {/* What you get */}
-        <section className="section-py bg-brand-offwhite">
+        <section className="section-py bg-surface-bg">
           <div className="container-xl">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-brand-dark">What You Get</h2>
+              <h2 className="font-display text-4xl font-bold text-text-primary">What You Get</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-5">
               {whatYouGet.map((item, i) => (
                 <div
                   key={item.title}
-                  className="bg-white rounded-2xl p-8 border border-gray-100 flex gap-5
-                             hover:border-brand-primary/30 hover:shadow-sm transition-all duration-300
+                  className="bg-surface-card rounded-2xl p-8 border border-surface-border flex gap-5
+                             hover:border-surface-border-glow hover:shadow-glow-sm transition-all duration-300
                              animate-on-scroll"
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
                   <div className="text-3xl">{item.emoji}</div>
                   <div>
-                    <h3 className="font-bold text-brand-dark mb-2">{item.title}</h3>
-                    <p className="text-sm text-brand-gray leading-relaxed">{item.description}</p>
+                    <h3 className="font-display font-bold text-text-primary mb-2">{item.title}</h3>
+                    <p className="text-sm text-text-secondary leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -139,14 +127,14 @@ export default function BuildersPage() {
         </section>
 
         {/* How it works */}
-        <section className="section-py bg-white">
+        <section className="section-py bg-surface-card border-y border-surface-border">
           <div className="container-xl">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-brand-dark">How It Works</h2>
+              <h2 className="font-display text-4xl font-bold text-text-primary">How It Works</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6 relative">
               <div className="absolute top-8 left-[calc(16.67%+2rem)] right-[calc(16.67%+2rem)]
-                              h-px border-t-2 border-dashed border-brand-lavender hidden md:block" />
+                              h-px border-t border-dashed border-surface-border-glow hidden md:block" />
               {howItWorks.map((step, i) => (
                 <div
                   key={step.step}
@@ -154,11 +142,11 @@ export default function BuildersPage() {
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
                   <div className="relative z-10 w-16 h-16 rounded-full bg-brand-primary text-white
-                                  flex items-center justify-center text-lg font-bold shadow-glow-sm">
+                                  flex items-center justify-center text-lg font-bold shadow-glow-sm font-display">
                     {step.step}
                   </div>
-                  <h3 className="font-bold text-brand-dark">{step.title}</h3>
-                  <p className="text-sm text-brand-gray leading-relaxed">{step.description}</p>
+                  <h3 className="font-display font-bold text-text-primary">{step.title}</h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">{step.description}</p>
                 </div>
               ))}
             </div>
@@ -166,10 +154,12 @@ export default function BuildersPage() {
         </section>
 
         {/* Who it's for */}
-        <section className="section-py bg-brand-offwhite">
+        <section className="section-py bg-surface-bg">
           <div className="container-xl max-w-3xl mx-auto text-center animate-on-scroll">
-            <h2 className="text-3xl font-bold text-brand-dark mb-5">Who It&apos;s For</h2>
-            <p className="text-lg text-brand-gray leading-relaxed">
+            <h2 className="font-display text-3xl font-bold text-text-primary mb-5">
+              Who It&apos;s For
+            </h2>
+            <p className="text-lg text-text-secondary leading-relaxed">
               Motivated individuals who want to build real skills in web, app, marketing, design,
               or AI — and are willing to work for it.
             </p>
@@ -177,14 +167,14 @@ export default function BuildersPage() {
         </section>
 
         {/* Apply */}
-        <section className="section-py bg-brand-dark relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/20 to-transparent" />
+        <section className="section-py bg-surface-card border-t border-surface-border relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 to-transparent" />
           <div className="container-xl relative z-10 text-center flex flex-col items-center gap-6">
-            <h2 className="text-4xl font-bold text-white">Ready to Build?</h2>
+            <h2 className="font-display text-4xl font-bold text-text-primary">Ready to Build?</h2>
             <div className="flex flex-col items-center gap-3">
               {["Real projects. Not simulations.", "Real workflows. Real discipline.", "Real growth. Measurable outcomes."].map((b) => (
-                <div key={b} className="flex items-center gap-2 text-white/70 text-sm">
-                  <CheckCircle2 size={14} className="text-brand-lavender" />
+                <div key={b} className="flex items-center gap-2 text-text-secondary text-sm">
+                  <CheckCircle2 size={14} className="text-brand-primary" />
                   {b}
                 </div>
               ))}
@@ -192,7 +182,7 @@ export default function BuildersPage() {
             <Button href="/contact" size="lg">
               Apply to the Program <ArrowRight size={18} />
             </Button>
-            <p className="text-xs text-white/35">
+            <p className="text-xs text-text-muted">
               Applications are reviewed on a rolling basis. Spots are limited.
             </p>
           </div>

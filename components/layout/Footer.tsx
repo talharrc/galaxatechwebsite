@@ -37,10 +37,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-dark text-white">
-      {/* Top accent */}
-      <div className="h-0.5 bg-gradient-to-r from-brand-primary via-brand-mid to-transparent" />
-
+    <footer className="bg-surface-card border-t border-surface-border">
       <div className="container-xl py-16 lg:py-20">
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Brand column */}
@@ -55,12 +52,14 @@ export default function Footer() {
                 />
               </div>
               <div>
-                <p className="font-bold text-lg text-white leading-none">Galaxa Tech</p>
-                <p className="text-xs text-brand-lavender font-medium mt-0.5">{SITE.tagline}</p>
+                <p className="font-display font-bold text-lg text-text-primary leading-none">
+                  Galaxa Tech
+                </p>
+                <p className="text-xs text-text-accent font-medium mt-0.5">{SITE.tagline}</p>
               </div>
             </div>
 
-            <p className="text-sm text-white/55 leading-relaxed max-w-xs">
+            <p className="text-sm text-text-secondary leading-relaxed max-w-xs">
               A systems-driven creative tech agency. We audit, optimize, and build scalable
               digital ecosystems for modern businesses.
             </p>
@@ -77,8 +76,10 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-white/8 flex items-center justify-center
-                             text-white/50 hover:bg-brand-primary hover:text-white transition-all duration-200"
+                  className="w-9 h-9 rounded-lg bg-surface-elevated flex items-center justify-center
+                             text-text-muted hover:bg-brand-primary hover:text-white
+                             border border-surface-border hover:border-brand-primary
+                             transition-all duration-200"
                 >
                   <Icon size={16} />
                 </a>
@@ -90,7 +91,7 @@ export default function Footer() {
           <div className="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
             {footerLinks.map((col) => (
               <div key={col.heading} className="flex flex-col gap-4">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-white/40">
+                <h3 className="text-xs font-semibold uppercase tracking-widest text-text-accent">
                   {col.heading}
                 </h3>
                 <ul className="flex flex-col gap-2.5">
@@ -98,8 +99,8 @@ export default function Footer() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-sm text-white/55 hover:text-white transition-colors duration-200
-                                   break-all"
+                        className="text-sm text-text-secondary hover:text-text-primary
+                                   transition-colors duration-200 break-all"
                       >
                         {link.label}
                       </Link>
@@ -112,16 +113,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 pt-6 border-t border-white/8 flex flex-col sm:flex-row
+        <div className="mt-14 pt-6 border-t border-surface-border flex flex-col sm:flex-row
                         items-center justify-between gap-3">
-          <p className="text-xs text-white/35">
+          <p className="text-xs text-text-muted">
             © 2026 Galaxa Tech. All rights reserved. Built by GT.
           </p>
-          <div className="flex items-center gap-4 text-xs text-white/35">
-            <Link href="/contact" className="hover:text-white/60 transition-colors">
+          <div className="flex items-center gap-4 text-xs text-text-muted">
+            <Link href="/contact" className="hover:text-text-secondary transition-colors">
               Privacy
             </Link>
-            <Link href="/contact" className="hover:text-white/60 transition-colors">
+            <Link href="/contact" className="hover:text-text-secondary transition-colors">
               Terms
             </Link>
           </div>
