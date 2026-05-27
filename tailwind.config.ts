@@ -9,28 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: "#6C3CFF",
+        brand: {
+          primary: "#6C3CFF",
           mid: "#8D5CFF",
-          light: "#C0B4FC",
+          lavender: "#C0B4FC",
+          dark: "#0F0B1D",
+          white: "#FFFFFF",
+          offwhite: "#F7F6FF",
+          gray: "#6B7280",
         },
-        dark: "#0F0B1D",
       },
       fontFamily: {
-        poppins: ["var(--font-poppins)", "sans-serif"],
+        sans: ["var(--font-poppins)", "sans-serif"],
       },
-      backgroundImage: {
-        "gradient-brand": "linear-gradient(135deg, #6C3CFF 0%, #8D5CFF 50%, #C0B4FC 100%)",
-        "gradient-brand-r": "linear-gradient(135deg, #C0B4FC 0%, #8D5CFF 50%, #6C3CFF 100%)",
-      },
-      animation: {
-        "fade-up": "fadeUp 0.6s ease-out forwards",
-      },
-      keyframes: {
-        fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
+      boxShadow: {
+        glow: "0 0 40px rgba(108, 60, 255, 0.18)",
+        "glow-sm": "0 0 20px rgba(108, 60, 255, 0.12)",
       },
     },
   },

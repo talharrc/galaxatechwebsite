@@ -1,71 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --font-poppins: 'Poppins', sans-serif;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply font-poppins text-dark antialiased;
+    font-family: var(--font-poppins), sans-serif;
+    @apply text-brand-dark antialiased;
   }
 
   * {
-    @apply box-border;
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    @apply bg-brand-primary/20 text-brand-primary;
   }
 }
 
 @layer components {
-  .section-container {
-    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  .container-xl {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  .section-padding {
+  .section-py {
     @apply py-20 lg:py-28;
   }
 
-  .section-label {
-    @apply text-sm font-semibold tracking-widest uppercase text-primary;
+  /* Scroll animation base state */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
-  .section-heading {
-    @apply text-4xl lg:text-5xl font-bold text-dark leading-tight;
-  }
-
-  .section-subheading {
-    @apply text-lg text-gray-500 font-normal leading-relaxed max-w-2xl;
-  }
-
-  .btn-primary {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-white font-semibold rounded-full
-           hover:bg-primary-mid transition-all duration-300 hover:shadow-lg hover:shadow-primary/25
-           hover:-translate-y-0.5 active:translate-y-0;
-  }
-
-  .btn-ghost {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 border-2 border-primary text-primary font-semibold
-           rounded-full hover:bg-primary hover:text-white transition-all duration-300
-           hover:-translate-y-0.5 active:translate-y-0;
-  }
-
-  .btn-ghost-white {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white text-white font-semibold
-           rounded-full hover:bg-white hover:text-primary transition-all duration-300;
-  }
-
-  .btn-primary-white {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary font-semibold rounded-full
-           hover:bg-primary-light transition-all duration-300;
-  }
-
-  .card-base {
-    @apply bg-white border border-gray-100 rounded-2xl p-8 shadow-sm
-           hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300;
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f8f8ff; }
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f0f0f8; }
 ::-webkit-scrollbar-thumb { background: #6C3CFF; border-radius: 3px; }

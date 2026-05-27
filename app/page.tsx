@@ -1,13 +1,14 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Capabilities from "@/components/Capabilities";
-import CaseStudies from "@/components/CaseStudies";
-import WhyGalaxa from "@/components/WhyGalaxa";
-import Process from "@/components/Process";
-import Builders from "@/components/Builders";
-import Testimonials from "@/components/Testimonials";
-import CTABanner from "@/components/CTABanner";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import Hero from "@/components/sections/Hero";
+import TrustStrip from "@/components/sections/TrustStrip";
+import ServicesGrid from "@/components/sections/ServicesGrid";
+import FeaturedWork from "@/components/sections/FeaturedWork";
+import WhyGT from "@/components/sections/WhyGT";
+import ProcessSection from "@/components/sections/ProcessSection";
+import BuildersTeaser from "@/components/sections/BuildersTeaser";
+import CTABanner from "@/components/sections/CTABanner";
+import ScrollAnimator from "@/components/ScrollAnimator";
 
 export default function HomePage() {
   return (
@@ -15,15 +16,16 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <Capabilities />
-        <CaseStudies />
-        <WhyGalaxa />
-        <Process />
-        <Builders />
-        <Testimonials />
+        <TrustStrip />
+        <ServicesGrid />
+        <FeaturedWork />
+        <WhyGT />
+        <ProcessSection />
+        <BuildersTeaser />
         <CTABanner />
       </main>
       <Footer />
+      <ScrollAnimator />
     </>
   );
 }

@@ -10,23 +10,25 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Galaxa Tech — Ecosystems, Optimized.",
+  title: "Galaxa Tech — Digital Ecosystem Agency | Audit, Optimize, Build",
   description:
-    "Galaxa Tech builds digital ecosystems that generate, optimize, and scale revenue for modern businesses. Web development, AI automation, digital marketing, and more.",
+    "Galaxa Tech audits your digital presence, identifies what's holding you back, and builds the systems that move you forward. Based in Dhaka, working globally.",
   keywords: [
     "digital agency",
+    "digital audit",
     "web development",
-    "AI automation",
-    "digital marketing",
     "app development",
+    "AI automation",
     "brand design",
     "Notion systems",
+    "Dhaka",
+    "Bangladesh",
   ],
   openGraph: {
-    title: "Galaxa Tech — Ecosystems, Optimized.",
-    description:
-      "We build digital ecosystems that generate, optimize, and scale revenue for modern businesses.",
+    title: "Galaxa Tech — Digital Ecosystem Agency",
+    description: "Audit. Optimize. Build. Systems-driven creative tech agency.",
     type: "website",
+    siteName: "Galaxa Tech",
   },
 };
 
@@ -37,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={poppins.variable}>
-      <body>{children}</body>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }
